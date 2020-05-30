@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #cdd6b5;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.todocontainer {
+  max-width: 500px;
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.header {
+  background-color: #c70000;
+  position: relative;
+  border-radius: 5px 5px 0 0;
+}
+
+.header h3 {
+  margin: 0;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+}
+
+.header a {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+}
+
+ul.tasklist {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.tasklist li {
+  list-style: none;
+  padding: 7px 10px;
+  background: #fefefe;
+}
+
+.tasklist li.completed span {
+  color: #999;
+  text-decoration: line-through;
+}
+
+.tasklist li:nth-child(2n + 1) {
+  background-color: #f6f6f7;
+}
+
+.tasklist li .taskstatus {
+  float: right;
+}
+
+input.task-field {
+  width: 100%;
+  border: none;
+  height: 50px;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+form[name="task-form"] {
+  position: relative;
+}
+a.add-task {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/**
+Task Animation 
+**/
+
+.tasklist li.task-enter {
+  transition: all 0.5s;
+  transform: translateX(-100%);
+}
+.tasklist li.task-enter.task-enter-active {
+  transform: translateX(0);
+}
+
+.tasklist li.task-exit {
+  transition: all 0.5s;
+  transform: translateX(0);
+}
+.tasklist li.task-exit.task-exit-active {
+  transform: translateX(100%);
+}
+
+ul.tasklist li div.actions {
+  display: none;
+  transition: all 0.5s;
+}
+
+ul.tasklist li:hover div.actions {
+  display: inline-block;
+}
+
+.actions a {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/**
+Edit form style
+**/
+
+.form-row {
+  margin-bottom: 10px;
+}
+.form-row label {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.form-row input,
+.form-row textarea {
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+  padding: 6px 12px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.submit {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 3px;
+  padding: 6px 12px;
+  font-size: 16px;
+}
