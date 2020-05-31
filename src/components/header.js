@@ -1,19 +1,22 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faEdit } from '@fortawesome/free-solid-svg-icons'
+import {  faEdit } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
 
-class Header extends React.Component{
+const Header = (props) => {
 
-    render (){
-        return (
+    const tasks = useSelector(state => state);
+    console.log(tasks);
+    
+    return (
             <div className="header">
-                <h3>{ this.props.title }</h3>
-                <a href="#" onClick={this.props.toggleForm}>
+                <h3>{ props.title }</h3>
+                <a href="#" onClick={props.toggleForm}>
                     <FontAwesomeIcon icon={faEdit} />
                 </a>    
             </div>
         )
-    }
+    
 }
 
 export default Header;

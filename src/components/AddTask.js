@@ -1,36 +1,22 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 
-class AddTask extends React.Component{
-    
-    taskRef = React.createRef();
 
-    addTask = event => {
-        event.preventDefault();
-        const task = {
-            name: this.taskRef.current.value,
-            completed: false,
-            desc: ''
-        }
-
-        this.props.addTask(task);
-
-        event.currentTarget.reset();
-    }
-
-    render(){
-
-        if(this.props.showForm){
+const AddTask = (props) => {
+            const tasks = useSelector( state => state.tasks);
+            const dispatch = useDispatch();
+            
+            if(props.showForm){
             return (
-                <form name="task-form" onSubmit={this.addTask}>
-                    <input type="text"  name="task" className="task-field" ref={this.taskRef} placeholder="Type here and hit enter" />
+                <form name="task-form" onSubmit={ () => dispatch({ type: 'ADD_TASK', task: 1}) }>
+                    <input type="text"  name="task" className="task-field" placeholder="Type here and hit enter" />
                 </form>    
             )
         }
 
         return null;
-        
-    }
+    
 }
 
 export default AddTask;
